@@ -1,0 +1,58 @@
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+  
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6"></div>
+        <h1><%= title %></h1>
+
+        <form class="form" method="POST">
+            <div class="class-group">
+                <label for="contactNameTextField">Contact Name</label>
+                <input type="text" class="form-control"
+                id="contactNameTextField"
+                placeholder="Enter the Contact Number"
+                name="contactName"
+                value="<%= bcl.contactName %>"
+                 required>
+            </div>
+
+            <div class="class-group">
+                <label for="contactNumberTextField">Contact Number</label>
+                <input type="text" class="form-control"
+                id="contactNumberTextField"
+                placeholder="Enter the Contact Number"
+                name="contactNumber"
+                value="<%= bcl.contactNumber %>"
+                required>
+            </div>
+
+            <div class="class-group">
+                <label for="emailTextField">Email</label>
+                <input type="text" class="form-control"
+                id="emailTextField"
+                placeholder="Enter the Email"
+                name="email"
+                value="<%= bcl.email %>"
+                 required>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-edit">Submit</i>
+            </button>
+
+            <a href="/business-contact-list" class="btn btn-warning">
+                <i class="fas fa-undo"></i> Cancel</a>
+        </form>
+    </div>
+</div>
+  
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
+
+
+
+
