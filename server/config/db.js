@@ -1,4 +1,4 @@
 module.exports=
 {
-    "URI": "mongodb://localhost/coffee_roastery"
+    "URI": "mongodb://localhost/VMA"
 }

@@ -11,31 +11,12 @@ let User = mongoose.Schema
             trim: true,
             required: 'username is required'
         },
-       email: 
-       {
-            type: String,
-            default: '',
-            trim: true,
-            required: 'email address is required'
-       },
-       displayName: 
-       {
-            type: String,
-            default: '',
-            trim: true,
-            required: 'Display Name is required'
-       },
-       created: 
-       {
-            type: Date,
-            default: Date.now
-       },
-       update: 
-       {
-            type: Date,
-            default: Date.now
-       }
-    },
+        role:{
+               type: String,
+               default: 'Patient',
+               enum: ['Doctor', 'Patient', 'Student']
+          },
+        },
     {
         collection: "users"
     }

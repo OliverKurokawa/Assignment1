@@ -7,23 +7,23 @@ let userModel = require('../models/user');
 let User = userModel.User;
 
 module.exports.displayHomePage = (req,res,next) =>{
-    res.render('index',{title:'Home', displayName: req.user ? req.user.displayName : ''});
+    res.render('index',{title:'Home', username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayAboutPage = (req,res,next) =>{
-    res.render('aboutMe',{title:'About', displayName: req.user ? req.user.displayName : ''});
+    res.render('aboutMe',{title:'About', username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayProductsPage = (req,res,next) =>{
-    res.render('products',{title:'Products', displayName: req.user ? req.user.displayName : ''});
+    res.render('products',{title:'Products', username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayServicesPage = (req,res,next) =>{
-    res.render('services',{title:'Services', displayName: req.user ? req.user.displayName : ''});
+    res.render('services',{title:'Services', username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayContactPage = (req,res,next) =>{
-    res.render('contact',{title:'Contact', displayName: req.user ? req.user.displayName : ''});
+    res.render('contact',{title:'Contact', username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayLoginpage = (req,res,next) => {
@@ -32,7 +32,7 @@ module.exports.displayLoginpage = (req,res,next) => {
         {
             title: "Login",
            messages: req.flash('loginMessage'),
-           displayName: req.user ? req.user.displayName : '' 
+           username: req.user ? req.user.username : '' 
         })
     }
     else
@@ -48,7 +48,7 @@ module.exports.displayLoginPage = (req, res, next) => {
         {
            title: "Login",
            messages: req.flash('loginMessage'),
-           displayName: req.user ? req.user.displayName : '' 
+           username: req.user ? req.user.username : '' 
         })
     }
     else
@@ -78,13 +78,12 @@ module.exports.processLoginPage = (req, res, next) => {
             const payload = 
             {
                 id: user._id,
-                displayName: user.displayName,
                 username: user.username,
                 email: user.email
             }
 
 
-            return res.redirect('/business-contact-list');
+            return res.redirect('/');
         });
     })(req, res, next);
 }
@@ -96,7 +95,7 @@ module.exports.displayRegisterPage = (req, res, next) => {
         {
             title: 'Register',
             messages: req.flash('registerMessage'),
-            displayName: req.user ? req.user.displayName : ''
+            username: req.user ? req.user.username : ''
         });
     }
     else
@@ -109,7 +108,7 @@ module.exports.processRegisterPage = (req, res, next) => {
     let newUser = new User({
         username: req.body.username,
         email: req.body.email,
-        displayName: req.body.displayName
+        username: req.body.username
     });
 
     User.register(newUser, req.body.password, (err) => {
@@ -128,13 +127,13 @@ module.exports.processRegisterPage = (req, res, next) => {
             {
                 title: 'Register',
                 messages: req.flash('registerMessage'),
-                displayName: req.user ? req.user.displayName : ''
+                username: req.user ? req.user.username : ''
             });
         }
         else
         {
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/business-contact-list')
+                res.redirect('/')
             });
         }
     });

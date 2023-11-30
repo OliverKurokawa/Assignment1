@@ -1,33 +1,26 @@
-<%- include ../partials/header.ejs %>
-
-<%- include ../partials/main_nav.ejs %>
-  
 <main class="container">
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><%= title %></h1>
 
             <% if(typeof displayName == 'string' && displayName) { %>
-                <a href="/coffee-list/add" class="btn btn-primary" role="button">
-                    <i class="fas fa-plus-circle"></i> Add Coffee</a>
+                <a href="/medical_profile/add" class="btn btn-primary" role="button">
+                    <i class="fas fa-plus-circle"></i> Add Medical 
+                    Profile</a>
             <% } %>
             <br>
             <table class="table table-bordered table-striped table-hover">
                 <tr class="d-flex">
                     <% if(typeof displayName == 'string' && displayName) { %>
-                        <th class="text-center col-2">Bean Type</th>
-                        <th class="text-center col-2">Roast Level</th>
-                        <th class="text-center col-2">Roast Date</th>
-                        <th class="col-1">Price/Kg</th>
-                        <th class="text-center col-3">BrewGuide</th>
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">DOB</th>
+                        <th class="text-center col-2">Record</th>
                         <th class="text-center col-1"></th>
                         <th class="text-center col-1"></th>
                     <% } else{ %>
-                        <th class="text-center col-2">Bean Type</th>
-                        <th class="text-center col-2">Roast Level</th>
-                        <th class="text-center col-2">Roast Date</th>
-                        <th class="col-1">Price/Kg</th>
-                        <th class="text-center col-5">BrewGuide</th>
+                        <th class="text-center col-2">Name</th>
+                        <th class="text-center col-2">DOB</th>
+                        <th class="text-center col-2">Record</th>
                     <% } %>
                 </tr>
 
@@ -63,9 +56,5 @@
         </div>
     </div>
   </main>
-  
-<%- include ../partials/bottom_nav.ejs %>  
 
-<%- include ../partials/footer.ejs %>
 
-  
